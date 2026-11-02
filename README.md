@@ -1,29 +1,29 @@
 # HR Attendance
 
-Ung dung cham cong, quan ly gio lam va xep lich lam viec theo kien truc modular monolith.
+An attendance, working-hours management, and work-scheduling application built with a modular monolith architecture.
 
-## Cau truc
+## Project Structure
 
-- `be/`: Spring Boot 3.5, Java 21
+- `be/`: Spring Boot 3.5 and Java 21
 - `fe/`: React 19 + TypeScript + Vite
-- NeonDB hoac PostgreSQL duoc truyen qua bien moi truong backend
+- NeonDB or PostgreSQL connection configured through backend environment variables
 
-## Khoi dong PostgreSQL local
+## Start Local PostgreSQL
 
 ```powershell
 docker compose up -d
 ```
 
-## Chay backend
+## Run the Backend
 
 ```powershell
 cd be
 .\mvnw.cmd spring-boot:run
 ```
 
-API kiem tra suc khoe: `http://localhost:8080/api/v1/health`
+Health check API: `http://localhost:8080/api/v1/health`
 
-## Chay frontend
+## Run the Frontend
 
 ```powershell
 cd fe
@@ -34,9 +34,17 @@ npm run dev
 
 Frontend: `http://localhost:5173`
 
-## Cau hinh NeonDB
+## Configure NeonDB
 
-Sao chep `be/.env.example`, dat gia tri Neon trong bien moi truong cua shell:
+Copy `be/.env.example` to `be/.env`, then set your NeonDB values:
+
+```dotenv
+DB_URL=jdbc:postgresql://ep-example-pooler.region.aws.neon.tech/hr_attendance?sslmode=require
+DB_USERNAME=your_neon_user
+DB_PASSWORD=your_neon_password
+```
+
+Alternatively, set them as shell environment variables in PowerShell:
 
 ```powershell
 $env:DB_URL="jdbc:postgresql://ep-example-pooler.region.aws.neon.tech/hr_attendance?sslmode=require"
@@ -44,4 +52,4 @@ $env:DB_USERNAME="your_neon_user"
 $env:DB_PASSWORD="your_neon_password"
 ```
 
-Khong commit thong tin ket noi, mat khau hoac chuoi ket noi cua NeonDB.
+Do not commit NeonDB connection details, passwords, or connection strings.
