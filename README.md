@@ -6,6 +6,7 @@ An attendance, working-hours management, and work-scheduling application built w
 
 - `be/`: Spring Boot 3.5 and Java 21
 - `fe/`: React 19 + TypeScript + Vite
+- `mobile/`: Flutter application for Android and iOS
 - NeonDB or PostgreSQL connection configured through backend environment variables
 
 ## Start Local PostgreSQL
@@ -33,6 +34,14 @@ npm run dev
 ```
 
 Frontend: `http://localhost:5173`
+
+## Run the Mobile Application
+
+```powershell
+cd mobile
+flutter pub get
+flutter run
+```
 
 ## Configure NeonDB
 
